@@ -9,10 +9,9 @@ import java.util.Scanner;
  *
  */
 public class GenericsTestMaximum {
-	/**
+	 /**
 	 * @param main method to call the compareTo method
 	 */
-
 	public static void main(String[] args) {
 		Integer firstNumber, secoundNumber, thirdNumber;
 		System.out.println("Enter the three integer");
