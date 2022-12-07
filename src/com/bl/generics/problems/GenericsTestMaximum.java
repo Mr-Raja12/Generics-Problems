@@ -1,15 +1,14 @@
 package com.bl.generics.problems;
 
 import java.util.Scanner;
-
 /**
- * 
  * @author Raja 
- * 1)To find the max integer among three integer using compareTo
+ *1)To find the max integer among three integer using compareTo
  * method 
- * 2)To find the max integer among three String using compareTo
+ *2)To find the max integer among three String using compareTo
  *  method
- *
+ *3)To find the max integer among three String using compareTo
+ *  method
  */
 public class GenericsTestMaximum {
 	/**
@@ -18,6 +17,7 @@ public class GenericsTestMaximum {
 	public static void main(String[] args) {
 		Integer firstNumber, secoundNumber, thirdNumber;
 		String firstString, secoundString, thirdString;
+		Float firstFloat, secoundFloat, thirdFloat;
 		System.out.println("Enter the three integer");
 		Scanner scanner = new Scanner(System.in);
 		firstNumber = scanner.nextInt();
@@ -27,11 +27,16 @@ public class GenericsTestMaximum {
 		firstString = scanner.nextLine();
 		secoundString = scanner.nextLine();
 		thirdString = scanner.nextLine();
+		System.out.println("Enter the three Float");
+		firstFloat = scanner.nextFloat();
+		secoundFloat = scanner.nextFloat();
+		thirdFloat = scanner.nextFloat();
 
 		System.out.println("Maximum among three integer");
 		GenericsTestMaximum max = new GenericsTestMaximum();
 		max.findMax(firstNumber, secoundNumber, thirdNumber);
 		max.findMax(firstString, secoundString, thirdString);
+		max.findMax(firstFloat, secoundFloat, thirdFloat);
 
 	}
 
@@ -87,6 +92,32 @@ public class GenericsTestMaximum {
 		}
 		System.out.println("Maximum String is : " + maxString + " among " + firstString + ", " + secoundString + " and "
 				+ thirdString);
+	}
+
+	/**
+	 * Created a method to initialize the three Float
+	 * 
+	 * @param firstFloat
+	 * @param secoundFloat
+	 * @param thirdFloat
+	 */
+	public void findMax(Float firstFloat, Float secoundFloat, Float thirdFloat) {
+
+		Float maxNumber;
+
+		if (firstFloat.compareTo(secoundFloat) > 0 && firstFloat.compareTo(thirdFloat) > 0) {
+			maxNumber = firstFloat;
+		}
+
+		else if (secoundFloat.compareTo(firstFloat) > 0 && secoundFloat.compareTo(thirdFloat) > 0) {
+			maxNumber = secoundFloat;
+		}
+
+		else {
+			maxNumber = thirdFloat;
+		}
+		System.out.println("Maximum float is : " + maxNumber + " among " + firstFloat + ", " + secoundFloat + " and "
+				+ thirdFloat);
 	}
 
 }
