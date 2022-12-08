@@ -1,123 +1,86 @@
 package com.bl.generics.problems;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+
 /**
  * @author Raja 
- *1)To find the max integer among three integer using compareTo
- * method 
- *2)To find the max integer among three String using compareTo
- *  method
- *3)To find the max integer among three String using compareTo
- *  method
+ * 1)To find the max integer among three integer using compareTo method 
+ * 2)To find the max integer among three String using compareTo method 
+ * 3)To find the max Float among three Float using compareTomethod 
+ * 4)Extend the max method to take more then three parameters
  */
-public class GenericsTestMaximum {
+public class GenericsTestMaximum<T extends Comparable<T>> {
+
+	T varOne;
+	T varTwo;
+	T varThree;
+	T varFour;
+	T varFive;
+
+	public GenericsTestMaximum(T varOne, T varTwo, T varThree, T varFour, T varFive) {
+		super();
+		this.varOne = varOne;
+		this.varTwo = varTwo;
+		this.varThree = varThree;
+		this.varFour = varFour;
+		this.varFive = varFive;
+	}
+
+	public void findMax() {
+
+		GenericsTestMaximum.max(this.varOne, this.varTwo, this.varThree, this.varFour, this.varFive);
+
+	}
+
 	/**
 	 * @param main method to call the compareTo method
 	 */
 	public static void main(String[] args) {
-		Integer firstNumber, secoundNumber, thirdNumber;
-		String firstString, secoundString, thirdString;
-		Float firstFloat, secoundFloat, thirdFloat;
-		System.out.println("Enter the three integer");
+		Integer firstNumber, secoundNumber, thirdNumber, forthNumber, fifthNumber;
+		String firstString, secoundString, thirdString, forthString, fifthString;
+		Float firstFloat, secoundFloat, thirdFloat, forthFloat, fifthFloat;
+		System.out.println("Enter the five integer");
 		Scanner scanner = new Scanner(System.in);
 		firstNumber = scanner.nextInt();
 		secoundNumber = scanner.nextInt();
 		thirdNumber = scanner.nextInt();
-		System.out.println("Enter the three String");
+		forthNumber = scanner.nextInt();
+		fifthNumber = scanner.nextInt();
+
+		System.out.println("Enter the five String");
 		firstString = scanner.nextLine();
 		secoundString = scanner.nextLine();
 		thirdString = scanner.nextLine();
-		System.out.println("Enter the three Float");
+		forthString = scanner.nextLine();
+		fifthString = scanner.nextLine();
+
+		System.out.println("Enter the five Float");
 		firstFloat = scanner.nextFloat();
 		secoundFloat = scanner.nextFloat();
 		thirdFloat = scanner.nextFloat();
+		forthFloat = scanner.nextFloat();
+		fifthFloat = scanner.nextFloat();
 
-		System.out.println("Maximum among three integer");
-		GenericsTestMaximum max = new GenericsTestMaximum();
-		max.findMax(firstNumber, secoundNumber, thirdNumber);
-		max.findMax(firstString, secoundString, thirdString);
-		max.findMax(firstFloat, secoundFloat, thirdFloat);
+		System.out.println("***** Test Maximum among five ***** ");
+		max(firstNumber, secoundNumber, thirdNumber, forthNumber, fifthNumber);
+		max(firstString, secoundString, thirdString, forthString, fifthString);
+		max(firstFloat, secoundFloat, thirdFloat, forthFloat, fifthFloat);
 
 	}
 
-	/**
-	 * Created a method to initialize the three integer
-	 * 
-	 * @param firstNumber
-	 * @param secoundNumber
-	 * @param thirdNumber
-	 */
-	public void findMax(Integer firstNumber, Integer secoundNumber, Integer thirdNumber) {
+	public static <E extends Comparable<E>> void max(E firstVar, E secondVar, E thirdVar, E fourthVar, E fifthVar) {
 
-		Integer maxNumber;
-		/*
-		 * Checking the condition b/w three value
-		 */
-		if (firstNumber.compareTo(secoundNumber) > 0 && firstNumber.compareTo(thirdNumber) > 0) {
-			maxNumber = firstNumber;
-		}
+		ArrayList<E> varList = new ArrayList<>();
 
-		else if (secoundNumber.compareTo(firstNumber) > 0 && secoundNumber.compareTo(thirdNumber) > 0) {
-			maxNumber = secoundNumber;
-		}
+		varList.add(firstVar);
+		varList.add(secondVar);
+		varList.add(thirdVar);
+		varList.add(fourthVar);
+		varList.add(fifthVar);
 
-		else {
-			maxNumber = thirdNumber;
-		}
-		System.out.println("Maximum integer is : " + maxNumber + " among " + firstNumber + ", " + secoundNumber
-				+ " and " + thirdNumber);
+		System.out.println(Collections.max(varList) + " is the maximum out of " + varList);
+
 	}
-
-	/**
-	 * Created a method to initialize the three String
-	 * 
-	 * @param firstString
-	 * @param secoundString
-	 * @param thirdString
-	 */
-	public void findMax(String firstString, String secoundString, String thirdString) {
-
-		String maxString;
-
-		if (firstString.compareTo(secoundString) > 0 && firstString.compareTo(thirdString) > 0) {
-			maxString = firstString;
-		}
-
-		else if (secoundString.compareTo(firstString) > 0 && secoundString.compareTo(thirdString) > 0) {
-			maxString = secoundString;
-		}
-
-		else {
-			maxString = thirdString;
-		}
-		System.out.println("Maximum String is : " + maxString + " among " + firstString + ", " + secoundString + " and "
-				+ thirdString);
-	}
-
-	/**
-	 * Created a method to initialize the three Float
-	 * 
-	 * @param firstFloat
-	 * @param secoundFloat
-	 * @param thirdFloat
-	 */
-	public void findMax(Float firstFloat, Float secoundFloat, Float thirdFloat) {
-
-		Float maxNumber;
-
-		if (firstFloat.compareTo(secoundFloat) > 0 && firstFloat.compareTo(thirdFloat) > 0) {
-			maxNumber = firstFloat;
-		}
-
-		else if (secoundFloat.compareTo(firstFloat) > 0 && secoundFloat.compareTo(thirdFloat) > 0) {
-			maxNumber = secoundFloat;
-		}
-
-		else {
-			maxNumber = thirdFloat;
-		}
-		System.out.println("Maximum float is : " + maxNumber + " among " + firstFloat + ", " + secoundFloat + " and "
-				+ thirdFloat);
-	}
-
 }
