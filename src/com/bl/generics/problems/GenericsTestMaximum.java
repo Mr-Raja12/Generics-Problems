@@ -10,6 +10,7 @@ import java.util.Scanner;
  * 2)To find the max integer among three String using compareTo method 
  * 3)To find the max Float among three Float using compareTomethod 
  * 4)Extend the max method to take more then three parameters
+ * 5)Extend the max method to also print the max to std out using Generic Method
  */
 public class GenericsTestMaximum<T extends Comparable<T>> {
 
@@ -33,6 +34,10 @@ public class GenericsTestMaximum<T extends Comparable<T>> {
 		GenericsTestMaximum.max(this.varOne, this.varTwo, this.varThree, this.varFour, this.varFive);
 
 	}
+public static <E> void printMax(E max, ArrayList<E> list ) {
+		
+		System.out.println(max + " is maximum among " + list);
+}
 
 	/**
 	 * @param main method to call the compareTo method
@@ -80,7 +85,8 @@ public class GenericsTestMaximum<T extends Comparable<T>> {
 		varList.add(fourthVar);
 		varList.add(fifthVar);
 
-		System.out.println(Collections.max(varList) + " is the maximum out of " + varList);
+    	printMax(Collections.max(varList), varList);
+
 
 	}
 }
